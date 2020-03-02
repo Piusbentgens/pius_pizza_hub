@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+<div id="tuition-container">
+    <div id="info-pane" class="box-pane">
+        <div class="heading-title bold">Calculate Your child's tuition</div>
+        <div class="row-input">
+            <label>You and your spouses combined yearly income:</label>
+            <div class="input-wrap">
+                <div class="currency-code">€</div>
+                <input type="text" type="number" id="txtIncome" value="1000"/>
+            </div>
+        </div>
+        <div class="row-input">
+            <label>Number of children in the school:</label>
+            <div class="input-wrap">
+                <input type="text" type="number" id="txtKids" value="1" maxlength="1" class="short-input"/>
+            </div>
+            <div href="#" class="Button" onclick="calculateTuition()" id="demo">Calculate</div>
+        </div>
+    </div>
+    <div id="graph-pane" class="box-pane">
+        <div id="fees-total">
+            <div class="heading-title bold">Total tuition</div>
+            <div id="fees-total-value" class="tuition-value">
+                €<span id="tuition-total">0</span> per <span>academic year</span>
+            </div>
+        </div>
+        <div id="children-total">
+            <div class="heading-title bold">Tuition </div>
+            <div id="per-child-value" class="tuition-value">
+                €<span id="per-child">0</span> per <span>child</span>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div id="graph-chart"></div>
+    </div>
+</div>
+
+<style>
+    #tuition-container{
+        text-align:left;
+        max-width: 1200px;
+        margin:20px auto;
+        box-sizing: border-box;
+        font-family: Roboto,Arial,sans-serif;
+    }
+
+    .Button {
+        background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+        background-color:#007dc1;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:13px;
+        padding:12px 16px;
+        text-decoration:none;
+        margin:20px auto;
+    }
+    .Button:hover {
+        background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+        background-color:#0061a7;
+    }
+    .Button:active {
+        position:relative;
+        top:1px;
+    }
+
+    .box-pane{
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding:25px;
+        box-sizing: border-box;
+        min-height:570px;
+    }
+
+    #info-pane{
+        float:left;
+        width:35%;
+    }
+
+    #graph-pane{
+        float:right;
+        width:63%;
+    }
+
+    .heading-title{
+        font-size:1.35em;
+        margin-bottom:15px;
+    }
+
+    #fees-total{
+        float:left;
+        width:48%;
+    }
+
+    #children-total{
+        width:48%;
+        float:right;
+        text-align:right;
+    }
+
+    .row-input{
+        margin-bottom:20px;
+    }
+
+    .row-input label{
+        padding:5px 0;
+        display:block;
+    }
+
+    .row-input input, .row-input select{
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 9px 15px 10px;
+        outline: none;
+        border-radius:5px;
+        font-size:1em;
+    }
+
+    .input-wrap{
+        position:relative;
+    }
+
+    .currency-code{
+        position:absolute;
+        left:3px;
+        top:9px;
+    }
+
+    .short-input{
+        width:80px;
+    }
+
+    .bold{
+        font-weight:normal;
+    }
+
+    .tuition-value{
+        font-size:1.3em;
+        font-weight:bold;
+    }
+
+    .clear{
+        clear:both;
+    }
+
+    @media screen and (max-width: 992px) {
+        #info-pane, #graph-pane{
+            float:none;
+            width:100%;
+            margin-bottom:20px;
+        }
+
+        .box-pane{
+            min-height:500px;
+        }
+    }
+</style>
+<script src="script.js"></script>
+</body>
+</html>
